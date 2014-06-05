@@ -10,10 +10,9 @@ and
 
 # Installation
 
-Simply put the style files (`*.sty`) in a directory where LaTeX can find your
-files. On linux, for example, put these files in
-`~/texmf/tex/latex/colorbrewer/` (you might have to create the directory). Then
-run `texhash` to update the definitions.
+Simply put the files in a directory where LaTeX can find your files. On linux,
+for example, put these files in `~/texmf/tex/latex/colorbrewer/` (you might have
+to create the directory). Then run `texhash` to update the definitions.
 
 # Usage
 
