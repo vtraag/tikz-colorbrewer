@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{pgfplots}
+\usepgfplotslibrary{colorbrewer}
+\usepackage[active,tightpage]{preview}  %generates a tightly fitting border around the work
+\PreviewEnvironment{tikzpicture}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[smooth,thick,domain=-2*pi:2*pi,cycle multi list={Set1-4}]
+  \addplot gnuplot {tanh(x)};
+  \addplot gnuplot {sin(x)};
+  \addplot gnuplot {atan(x)};
+  \addplot gnuplot {tanh(-x)};
+\end{axis}
+\end{tikzpicture}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+

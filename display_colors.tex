@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{colorbrewer}
+\usepackage{datatool}
+
+\usepackage[active,tightpage]{preview}  %generates a tightly fitting border around the work
+\PreviewEnvironment{tikzpicture}
+\DTLloaddb[noheader=false]{schemes}{schemes.txt}
+\begin{document}
+\begin{tikzpicture}
+    \newcounter{row}
+    \DTLforeach*{schemes}{\scheme=ColorName,\nr=NumOfColors}
+    {
+      \addtocounter{row}{1}
+      \node[anchor=east] at (0,-\arabic{row}) {\scheme-\nr};
+      \foreach \co in {1,2,...,\nr}
+      {
+        \node[fill=\scheme-\nr-\co, minimum width=1cm, minimum height=5mm] at
+        (\co,-\arabic{row}) {}; 
+      }
+    }
+\end{tikzpicture}
+\end{document}
+
