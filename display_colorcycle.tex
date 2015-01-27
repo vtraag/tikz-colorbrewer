@@ -7,7 +7,7 @@
 \begin{document}
 
 \begin{tikzpicture}
-\begin{axis}[smooth,thick,domain=-2*pi:2*pi,cycle multi list={Set1-4}]
+\begin{axis}[smooth,thick,domain=-2*pi:2*pi,cycle list name={Set1-4}]
   \addplot gnuplot {tanh(x)};
   \addplot gnuplot {sin(x)};
   \addplot gnuplot {atan(x)};

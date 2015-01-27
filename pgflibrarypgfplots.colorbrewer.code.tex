@@ -6,7 +6,7 @@
 \def\pgfplotscreateplotcyclelistfromtable#1#2{%
     \begingroup
     \gdef\pgfplots@tmp{}%
-    \pgfplotstableread[col sep=semicolon, header=false]{#1}\table@tmp
+    \pgfplotstableread[col sep=semicolon, header=false]{cycle_list_definitions/#1}\table@tmp
     \pgfplotstableforeachcolumnelement{#2}\of\table@tmp\as\table@cell{%
         \begingroup
         \toks0=\expandafter{\table@cell}%
@@ -33,7 +33,7 @@
 			\expandafter\let\csname pgfp@cyclist@auto@\endcsname=\autoplotspeclist
 			\pgfkeyssetvalue{/pgfplots/cycle multi list/@dim}{0}% de-activate.
 		}{%
-			\IfFileExists{#1}{
+			\IfFileExists{cycle_list_definitions/#1}{
 				\pgfplotscreateplotcyclelistfromtable{#1}{[index]0}
 				\expandafter\let\expandafter\autoplotspeclist\csname pgfp@cyclist@\string#1@\endcsname
 				\expandafter\let\csname pgfp@cyclist@auto@\endcsname=\autoplotspeclist
