@@ -5,19 +5,28 @@
 
 \usepackage[active,tightpage]{preview}  %generates a tightly fitting border around the work
 \PreviewEnvironment{tikzpicture}
-\DTLloaddb[noheader=false]{schemes}{schemes.txt}
+\DTLloaddb[noheader=false]{scheme}{scheme_colors.txt}
 \begin{document}
 \begin{tikzpicture}
     \newcounter{row}
-    \DTLforeach*{schemes}{\scheme=ColorName,\nr=NumOfColors}
+    \newcounter{col}
+    \def\prevscheme{null}
+    \DTLforeach*{scheme}{\scheme=Scheme,\colname=ColorName,\co=ColorLetter}
     {
-      \addtocounter{row}{1}
-      \node[anchor=east] at (0,-\arabic{row}) {\scheme-\nr};
-      \foreach \co in {1,2,...,\nr}
-      {
-        \node[fill=\scheme-\nr-\co, minimum width=1cm, minimum height=5mm] at
-        (\co,-\arabic{row}) {}; 
-      }
+      \ifthenelse%
+        {\DTLiseq{\scheme}{\prevscheme}}%
+        {}%
+        { 
+          \addtocounter{row}{1}
+          \node[anchor=east] at (0,-\arabic{row}) {\scheme}; 
+          \setcounter{col}{0}
+        }
+
+      \addtocounter{col}{1}
+      \node[fill=\colname-\co, minimum width=1cm, minimum height=5mm] at
+      (\arabic{col},-\arabic{row}) {}; 
+
+      \let\prevscheme\scheme
     }
 \end{tikzpicture}
 \end{document}
