@@ -1,7 +1,6 @@
 ColorBrewer_all_schemes_RGBonly4_withPalette_and_Macro.csv
 ColorBrewer_all_schemes_RGBonly4_withPalette_and_Macro.xls
 add
-colorbrewer.sty
 colorbrewer.zip
 colorsmaps.txt
 create_pgfplotslibrary.sh
@@ -41,3 +40,4 @@ output_pgfcyclelist_with_lightmarkers.awk
 output_pgfcyclelist_with_markers.awk
 output_schemes.awk
 tikzlibrarycolorbrewer.code (copy).tex
+output_schemes.py
